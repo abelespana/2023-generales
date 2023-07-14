@@ -20,7 +20,7 @@ const Navigation = () => {
 			<BottomNavigation
 				showLabels
 				value={selectedTab}
-				onChange={(event, newValue) => {
+				onChange={(_, newValue) => {
 					setSelectedTab(newValue);
 				}}
 			>
@@ -42,8 +42,6 @@ const Navigation = () => {
 }
 
 function App() {
-
-
 	return (
 		<BrowserRouter>
 			<Routes>

@@ -23,7 +23,7 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	return (
 		<Box my={2}>
 			<Paper p={2} elevation={3}>
-				<Typography variant='h6'>{party.name}</Typography>
+				<Typography variant='subtitle1'>{party.name}</Typography>
 				{partySeats}
 				<br />
 				<ButtonGroup variant="contained" aria-label="outlined primary button group">
