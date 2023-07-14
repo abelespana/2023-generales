@@ -3,82 +3,91 @@ export const parties = [
 		name: 'Partido Socialista Obrero Español',
 		short: 'PSOE',
 		leader: 'Pedro Sánchez',
-		seats: 120,
+		currentSeats: 120,
 		projectedSeats: 0,
+		prevResults: "120"
 	},
 	{
 		name: 'Partido Popular',
 		short: 'PP',
 		leader: 'Alberto Núñez Feijóo',
-		seats: 89,
+		currentSeats: 89,
 		projectedSeats: 0,
+		prevResults: "89"
 	},
 	{
 		name: 'Vox',
 		leader: 'Santiago Abascal',
-		seats: 52,
+		currentSeats: 52,
 		projectedSeats: 0,
+		prevResults: "52"
 	},
 	{
 		name: 'Sumar',
 		leader: 'Yolanda Díaz',
-		prevName: '2019: Unidas Podemos (UP)',
-		seats: 35,
+		currentSeats: 35,
 		projectedSeats: 0,
+		prevResults: "35 (Unidas Podemos)",
 	},
 	{
 		name: 'Esquerra Republicana de Catalunya',
 		short: 'ERC-Sobiranistes',
 		leader: 'Por definir',
-		seats: 13,
+		currentSeats: 13,
 		projectedSeats: 0,
+		prevResults: "13"
 	},
 	{
 		name: 'JxCat-Junts',
 		leader: 'Por definir',
-		seats: 8,
+		currentSeats: 8,
 		projectedSeats: 0,
+		prevResults: "8"
 	},
 	{
 		name: 'Partido Nacionalista Vasco',
 		short: 'PNV',
 		leader: 'Aitor Esteban',
-		seats: 6,
+		currentSeats: 6,
 		projectedSeats: 0,
+		prevResults: "6"
 	},
 	{
 		name: 'EH-Bildu',
 		leader: 'Por definir',
-		seats: 5,
+		currentSeats: 5,
 		projectedSeats: 0,
+		prevResults: "5"
 	},
 	{
 		name: 'Navarra Suma',
 		leader: 'NA+',
-		seats: 2,
+		currentSeats: 2,
 		projectedSeats: 0,
+		prevResults: "2"
 	},
 	{
 		name: 'Coalición Canaria',
 		short: 'CC',
 		leader: 'Por definir',
-		prevName: '2019: CC-PNC-NC',
-		seats: 2,
+		currentSeats: 2,
 		projectedSeats: 0,
+		prevResults: "2"
 	},
 	{
 		name: 'Bloque Nacionalista Galego',
 		short: 'BNG',
 		leader: 'Por definir',
-		seats: 1,
+		currentSeats: "1",
 		projectedSeats: 0,
+		prevResults: "1"
 	},
 	{
 		name: 'España Vaciada',
 		short: 'EV',
 		leader: 'Por definir',
-		prevName: '2019: Teruel Existe',
-		seats: 1,
+		currentSeats: 1,
 		projectedSeats: 0,
+		prevResults: "1 (Teruel Existe)"
 	},
 ];

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+
 
 const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	const [partySeats, setPartySeats] = useState(party.projectedSeats);
@@ -21,30 +22,39 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	];
 
 	return (
-		<Box my={2}>
-			<Paper p={2} elevation={3}>
+		<Card raised sx={{p: 1, mt: 2}}>
+			<Grid container spacing={0.5}>
+			<Grid item xs={10}>
 				<Typography variant='subtitle1'>{party.name}</Typography>
+				<Typography variant='subtitle2'>{party.short}</Typography>
+				<Typography variant='p'>{party.leader}</Typography>
+				<br/>
+				<br/>
+				<Typography variant='p'><b>2019:</b> {party.prevResults}</Typography>
+			</Grid>
+			<Grid item xs={2}>
 				{partySeats}
-				<br />
-				<ButtonGroup variant="contained" aria-label="outlined primary button group">
-					{buttons.map((item) => {
-						return (
-							<Button
-								key={item.value}
-								size="large" 
-								variant='outlined'
-								disabled={item.condition}
-								onClick={() => {
-									updateSeats(item.value)}
-								}
-							>
-								{item.label}
-							</Button>
-						)
-					})}
-    		</ButtonGroup>
-			</Paper>
-		</Box>
+			</Grid>
+			</Grid>
+			
+			<ButtonGroup sx={{mt: 2}} variant="outlined" fullWidth>
+				{buttons.map((item) => {
+					return (
+						<Button
+							key={item.value}
+							size="large" 
+							variant='outlined'
+							disabled={item.condition}
+							onClick={() => {
+								updateSeats(item.value)}
+							}
+						>
+							{item.label}
+						</Button>
+					)
+				})}
+			</ButtonGroup>
+		</Card>
 	)
 }
 
