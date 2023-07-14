@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
@@ -9,6 +9,7 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	const [partySeats, setPartySeats] = useState(party.projectedSeats);
 
 	const updateSeats = (number) => {
+		updateTotalSeats(availableSeats - number);
 		setPartySeats(partySeats + number);
 	}
 
@@ -18,10 +19,6 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 		{ condition: availableSeats === 0, value: 1, label: "+1" },
 		{ condition: availableSeats < 5, value: 5, label: "+5" },
 	];
-
-	useEffect(() => {
-		updateTotalSeats(partySeats);
-	}, [partySeats, updateTotalSeats])
 
 	return (
 		<Box my={2}>

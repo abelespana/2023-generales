@@ -17,7 +17,7 @@ const BetPage = () => {
 		<Box sx={{pb: 7}}>
 			<SeatsCounter availableSeats={availableSeats} />
 			{parties.map(party => {
-				return <Party key={party.name} party={party} availableSeats={availableSeats} updateTotalSeats={() => {}} />;
+				return <Party key={party.name} party={party} availableSeats={availableSeats} updateTotalSeats={updateAvailableSeats} />;
 			})}
 		</Box>
 	);
