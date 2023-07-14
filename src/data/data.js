@@ -22,7 +22,7 @@ export const parties = [
 	{
 		name: 'Sumar',
 		leader: 'Yolanda Díaz',
-		prevName: "2019: Unidas Podemos (UP)",
+		prevName: '2019: Unidas Podemos (UP)',
 		seats: 35,
 		projectedSeats: 0,
 	},
@@ -42,7 +42,7 @@ export const parties = [
 	{
 		name: 'Partido Nacionalista Vasco',
 		short: 'PNV',
-		leader: 'Por definir',
+		leader: 'Aitor Esteban',
 		seats: 6,
 		projectedSeats: 0,
 	},
@@ -81,4 +81,4 @@ export const parties = [
 		seats: 1,
 		projectedSeats: 0,
 	},
-]
+];
