@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 
 
 const Party = ({ party, availableSeats, updateTotalSeats }) => {
@@ -15,10 +16,10 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	}
 
 	const buttons = [
-		{ condition: partySeats < 5, value: -5, label: "-5"  },
-		{ condition: partySeats === 0, value: -1, label: "-1"  },
-		{ condition: availableSeats === 0, value: 1, label: "+1" },
-		{ condition: availableSeats < 5, value: 5, label: "+5" },
+		{ condition: partySeats < 5, value: -5, label: "-5", color: 'error' },
+		{ condition: partySeats === 0, value: -1, label: "-1", color: 'error' },
+		{ condition: availableSeats === 0, value: 1, label: "+1", color: 'success' },
+		{ condition: availableSeats < 5, value: 5, label: "+5", color: 'success' },
 	];
 
 	return (
@@ -42,8 +43,9 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 					return (
 						<Button
 							key={item.value}
-							size="large" 
+							size="medium" 
 							variant='outlined'
+							color={item.color}
 							disabled={item.condition}
 							onClick={() => {
 								updateSeats(item.value)}

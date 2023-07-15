@@ -34,7 +34,6 @@ const Navigation = () => {
 					icon={<PollIcon />}
 					onClick={() => navigate("/results")}
 				>
-					Resultados
 				</BottomNavigationAction>
 			</BottomNavigation>
 		</Paper>
@@ -45,10 +44,11 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path='/' element={<BetPage />}></Route>
 				<Route path='/polls' element={<BetPage />}></Route>
 				<Route path='/results' element={<ResultsPage />}></Route>
 			</Routes>
-			<Navigation></Navigation>
+			<Navigation />
 		</BrowserRouter>
 
 	);

@@ -32,14 +32,15 @@ export const parties = [
 	{
 		name: 'Esquerra Republicana de Catalunya',
 		short: 'ERC-Sobiranistes',
-		leader: 'Por definir',
+		leader: 'Gabriel Rufián',
 		currentSeats: 13,
 		projectedSeats: 0,
 		prevResults: "13"
 	},
 	{
-		name: 'JxCat-Junts',
-		leader: 'Por definir',
+		name: 'Junts per Catalunya',
+		short: 'JxCat',
+		leader: 'Miriam Nogueras',
 		currentSeats: 8,
 		projectedSeats: 0,
 		prevResults: "8"
@@ -54,22 +55,23 @@ export const parties = [
 	},
 	{
 		name: 'EH-Bildu',
-		leader: 'Por definir',
+		leader: 'Mertxe Aizpurua',
 		currentSeats: 5,
 		projectedSeats: 0,
 		prevResults: "5"
 	},
 	{
-		name: 'Navarra Suma',
-		leader: 'NA+',
+		name: 'Unión del Pueblo Navarro',
+		short: 'UPN',
+		leader: 'Alberto Catalán',
 		currentSeats: 2,
 		projectedSeats: 0,
-		prevResults: "2"
+		prevResults: "2 (Navarra Suma)"
 	},
 	{
 		name: 'Coalición Canaria',
 		short: 'CC',
-		leader: 'Por definir',
+		leader: 'María Fernández',
 		currentSeats: 2,
 		projectedSeats: 0,
 		prevResults: "2"
@@ -77,7 +79,7 @@ export const parties = [
 	{
 		name: 'Bloque Nacionalista Galego',
 		short: 'BNG',
-		leader: 'Por definir',
+		leader: 'Nestor Rego',
 		currentSeats: "1",
 		projectedSeats: 0,
 		prevResults: "1"
@@ -85,7 +87,7 @@ export const parties = [
 	{
 		name: 'España Vaciada',
 		short: 'EV',
-		leader: 'Por definir',
+		leader: '-',
 		currentSeats: 1,
 		projectedSeats: 0,
 		prevResults: "1 (Teruel Existe)"
