@@ -5,7 +5,7 @@ export const parties = [
 		leader: 'Pedro Sánchez',
 		currentSeats: 120,
 		projectedSeats: 0,
-		prevResults: "120"
+		prevResults: "120 diputados"
 	},
 	{
 		name: 'Partido Popular',
@@ -13,21 +13,21 @@ export const parties = [
 		leader: 'Alberto Núñez Feijóo',
 		currentSeats: 89,
 		projectedSeats: 0,
-		prevResults: "89"
+		prevResults: "89 diputados"
 	},
 	{
 		name: 'Vox',
 		leader: 'Santiago Abascal',
 		currentSeats: 52,
 		projectedSeats: 0,
-		prevResults: "52"
+		prevResults: "52 diputados"
 	},
 	{
 		name: 'Sumar',
 		leader: 'Yolanda Díaz',
 		currentSeats: 35,
 		projectedSeats: 0,
-		prevResults: "35 (Unidas Podemos)",
+		prevResults: "35 dip. (Unidas Podemos)",
 	},
 	{
 		name: 'Esquerra Republicana de Catalunya',
@@ -35,7 +35,7 @@ export const parties = [
 		leader: 'Gabriel Rufián',
 		currentSeats: 13,
 		projectedSeats: 0,
-		prevResults: "13"
+		prevResults: "13 diputados"
 	},
 	{
 		name: 'Junts per Catalunya',
@@ -43,7 +43,7 @@ export const parties = [
 		leader: 'Miriam Nogueras',
 		currentSeats: 8,
 		projectedSeats: 0,
-		prevResults: "8"
+		prevResults: "8 diputados"
 	},
 	{
 		name: 'Partido Nacionalista Vasco',
@@ -51,14 +51,14 @@ export const parties = [
 		leader: 'Aitor Esteban',
 		currentSeats: 6,
 		projectedSeats: 0,
-		prevResults: "6"
+		prevResults: "6 diputados"
 	},
 	{
 		name: 'EH-Bildu',
 		leader: 'Mertxe Aizpurua',
 		currentSeats: 5,
 		projectedSeats: 0,
-		prevResults: "5"
+		prevResults: "5 diputados"
 	},
 	{
 		name: 'Unión del Pueblo Navarro',
@@ -66,7 +66,7 @@ export const parties = [
 		leader: 'Alberto Catalán',
 		currentSeats: 2,
 		projectedSeats: 0,
-		prevResults: "2 (Navarra Suma)"
+		prevResults: "2 dip. (Navarra Suma)"
 	},
 	{
 		name: 'Coalición Canaria',
@@ -74,7 +74,7 @@ export const parties = [
 		leader: 'María Fernández',
 		currentSeats: 2,
 		projectedSeats: 0,
-		prevResults: "2"
+		prevResults: "2 diputados"
 	},
 	{
 		name: 'Bloque Nacionalista Galego',
@@ -82,7 +82,7 @@ export const parties = [
 		leader: 'Nestor Rego',
 		currentSeats: "1",
 		projectedSeats: 0,
-		prevResults: "1"
+		prevResults: "1 diputado"
 	},
 	{
 		name: 'España Vaciada',
@@ -90,6 +90,6 @@ export const parties = [
 		leader: '-',
 		currentSeats: 1,
 		projectedSeats: 0,
-		prevResults: "1 (Teruel Existe)"
+		prevResults: "1 dip. (Teruel Existe)"
 	},
 ];

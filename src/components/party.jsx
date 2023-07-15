@@ -27,7 +27,7 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 			<Grid container spacing={0.5}>
 			<Grid item xs={10} sx={{fontFamily: 'roboto'}}>
 				<Typography variant='subtitle1'>{party.name}</Typography>
-				<Typography variant='subtitle2'>{party.short}</Typography>
+				<Typography sx={{marginBottom: '5px'}} variant='subtitle2'>{party.short}</Typography>
 				<Typography variant='p'>{party.leader}</Typography>
 				<br/>
 				<br/>

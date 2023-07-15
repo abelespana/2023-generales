@@ -2,8 +2,15 @@ import { Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 
 const SeatsCounter = ({availableSeats}) => {
-	const seatsLabel = "Escaños por asignar";
-	const chamberLabel = "Congreso de los Diputados"
+	const chamberLabel = "Congreso de los Diputados";
+
+	const seatsLabel = () => {
+		if (availableSeats > 1) {
+			return 'ESCAÑOS POR ASIGNAR';
+		}
+
+		return 'ESCAÑO POR ASIGNAR'
+	}
 
 	return (
 		
@@ -24,7 +31,7 @@ const SeatsCounter = ({availableSeats}) => {
 				align="center"
 				variant='subtitle2'
 			>
-				{seatsLabel.toUpperCase()}
+				{seatsLabel()}
 			</Typography>
 		</Paper>
 	)
