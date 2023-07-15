@@ -9,17 +9,19 @@ const TOTAL_SEATS = 50;
 
 const BetPage = () => {
 	const [availableSeats, setAvailableSeats] = useState(TOTAL_SEATS);
-	const [savingStatus, setSavingStatus] = useState(false);
+	const [savingButtonDisabled, setSavingButtonDisabled] = useState(false);
 
 	const updateAvailableSeats = (remainingSeats) => {
+		if (remainingSeats === 0) {
+			setSavingButtonDisabled(false);
+		}
 		setAvailableSeats(remainingSeats)
 	}
 
 	const saveBet = () => {
 		console.log('save button clicked!');
 		setTimeout(() => {
-			// Controlar el flag cuando se hacen cambios en la apuesta
-			setSavingStatus(true);
+			setSavingButtonDisabled(true);
 		}, 2000);
 	}
 
@@ -29,7 +31,7 @@ const BetPage = () => {
 
 	const ResultsFrame = () => {
 		if (availableSeats === 0) {
-			return (<SaveAndShare saveButtonClicked={saveBet} shareButtonClicked={shareBet} saveButtonDisabled={savingStatus}/>)
+			return (<SaveAndShare saveButtonClicked={saveBet} shareButtonClicked={shareBet} saveButtonDisabled={savingButtonDisabled}/>)
 		}
 
 		return (<SeatsCounter availableSeats={availableSeats}/>)
