@@ -7,12 +7,15 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 
-const Party = ({ party, availableSeats, updateTotalSeats }) => {
+const Party = ({ party, availableSeats, updateTotalSeats, updatePartySeats }) => {
 	const [partySeats, setPartySeats] = useState(party.projectedSeats);
 
 	const updateSeats = (number) => {
+		const updatedSeats = partySeats + number;
+
 		updateTotalSeats(availableSeats - number);
-		setPartySeats(partySeats + number);
+		updatePartySeats(party.name, updatedSeats);
+		setPartySeats(updatedSeats);
 	}
 
 	const buttons = [

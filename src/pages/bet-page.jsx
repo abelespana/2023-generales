@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { parties } from '../data/data';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from "../firebaseConfig";
 import Party from '../components/party';
 import SeatsCounter from '../components/seats-counter';
 import Box from '@mui/material/Box';
@@ -18,11 +20,30 @@ const BetPage = () => {
 		setAvailableSeats(remainingSeats)
 	}
 
+	const updatePartySeats = (party, seats) => {
+		const found = parties.find((x => x.name === party));
+		found.projectedSeats = seats;
+	}
+
+	const getTotalResults = () => {
+		return parties.map((party) => {
+			return {
+				name: party.short ? `${party.short}` : `${party.name}`,
+				seats: party.projectedSeats
+			}
+		});
+	}
+
 	const saveBet = () => {
-		console.log('save button clicked!');
-		setTimeout(() => {
-			setSavingButtonDisabled(true);
-		}, 2000);
+		const collectionId = 'generales';
+		const documentId = `${new Date().valueOf()}`;
+		const results = getTotalResults();
+
+		console.log(results);
+	
+		setDoc(doc(db, collectionId, documentId), {
+			results,
+		});
 	}
 
 	const shareBet = () => {
@@ -42,7 +63,7 @@ const BetPage = () => {
 		<ResultsFrame />
 		<Box sx={{pb: 7, pt: 12}}>
 			{parties.map(party => {
-				return <Party key={party.name} party={party} availableSeats={availableSeats} updateTotalSeats={updateAvailableSeats} />;
+				return <Party key={party.name} party={party} availableSeats={availableSeats} updateTotalSeats={updateAvailableSeats} updatePartySeats={updatePartySeats}/>;
 			})}
 		</Box>
 			</>
