@@ -25,7 +25,7 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 	return (
 		<Card raised sx={{p: 1, mt: 2}}>
 			<Grid container spacing={0.5}>
-			<Grid item xs={10}>
+			<Grid item xs={10} sx={{fontFamily: 'roboto'}}>
 				<Typography variant='subtitle1'>{party.name}</Typography>
 				<Typography variant='subtitle2'>{party.short}</Typography>
 				<Typography variant='p'>{party.leader}</Typography>
@@ -34,7 +34,9 @@ const Party = ({ party, availableSeats, updateTotalSeats }) => {
 				<Typography variant='p'><b>2019:</b> {party.prevResults}</Typography>
 			</Grid>
 			<Grid item xs={2}>
-				{partySeats}
+				<Stack sx={{height: '100%', fontSize: '30px', fontWeight: 'bold', fontFamily: 'roboto'}} alignItems="center" justifyContent="center">
+					{partySeats}
+				</Stack>
 			</Grid>
 			</Grid>
 			
