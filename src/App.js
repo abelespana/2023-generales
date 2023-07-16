@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import Paper from '@mui/material/Paper';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import PollIcon from '@mui/icons-material/Poll';
+
+import BetPage from './pages/bet-page';
+import ResultsPage from './pages/results-page';
+
+const Navigation = () => {
+	const [selectedTab, setSelectedTab] = useState(0);
+	const navigate = useNavigate();
+
+	return (
+		<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+			<BottomNavigation
+				showLabels
+				value={selectedTab}
+				onChange={(_, newValue) => {
+					setSelectedTab(newValue);
+				}}
+			>
+				<BottomNavigationAction
+					label="Urnas"
+					onClick={() => navigate("/polls")}
+					icon={<HowToVoteIcon />}
+				/>
+				<BottomNavigationAction
+					label="Resultados"
+					icon={<PollIcon />}
+					onClick={() => navigate("/results")}
+				>
+				</BottomNavigationAction>
+			</BottomNavigation>
+		</Paper>
+	)
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<BetPage />}></Route>
+				<Route path='/polls' element={<BetPage />}></Route>
+				<Route path='/results' element={<ResultsPage />}></Route>
+			</Routes>
+			<Navigation />
+		</BrowserRouter>
+
+	);
 }
 
 export default App;
