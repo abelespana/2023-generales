@@ -35,7 +35,8 @@ const BetPage = () => {
 		return parties.map((party) => {
 			return {
 				name: party.short ? `${party.short}` : `${party.name}`,
-				seats: party.projectedSeats
+				seats: party.projectedSeats,
+				align: party.align
 			}
 		});
 	}
