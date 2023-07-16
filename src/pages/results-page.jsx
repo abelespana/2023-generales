@@ -5,11 +5,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Menu from '../components/menu';
+import ResultsTable from '../components/results-table';
 
 const ResultsPage = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
-	const [results, setResults] = useState(null);
+	const [results, setResults] = useState([]);
 
 	const fetchResults = async () => {
 		const results = [];
@@ -53,7 +54,7 @@ const ResultsPage = () => {
 			return {
 				name: x.name, 
 				seats: Math.round(averageSeats),
-				legend: Number.isInteger(averageSeats) ? `${averageSeats} escaños` : `${Math.floor(averageSeats)}-${Math.round(averageSeats)} escaños`
+				legend: Number.isInteger(averageSeats) ? `${averageSeats}` : `${Math.floor(averageSeats)}-${Math.round(averageSeats)}`
 			};
 		}).filter((x) => x.seats > 0);
 	}
@@ -95,7 +96,8 @@ const ResultsPage = () => {
 		<>
 			<Menu />
 			<Box sx={{paddingTop: "40px"}} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-				<p> Resultados</p>
+				<Typography sx={{mb: '12px'}}variant="h6">Resultados:</Typography>
+				<ResultsTable data={results}/>
 			</Box>
 		</>
 	)
