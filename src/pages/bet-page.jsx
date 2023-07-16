@@ -15,6 +15,7 @@ const BetPage = () => {
 	const [availableSeats, setAvailableSeats] = useState(TOTAL_SEATS);
 	const [savingButtonDisabled, setSavingButtonDisabled] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
+	const [isSaved, setIsSaved] = useState(false);
 
 	const updateAvailableSeats = (number) => {
 		const remainingSeats = availableSeats - number;
@@ -66,7 +67,8 @@ const BetPage = () => {
 		setDoc(doc(db, collectionId, documentId), {
 			results,
 		}).then(() => {
-			setSavingButtonDisabled(true);	
+			setSavingButtonDisabled(true);
+			setIsSaved(true);
 		}).finally(() => {
 			setIsSaving(false);
 		});
@@ -79,6 +81,7 @@ const BetPage = () => {
 					saveButtonClicked={saveBet} 
 					saveButtonDisabled={savingButtonDisabled}
 					isSaving={isSaving}
+					isSaved={isSaved}
 					parties={parties}
 				/>
 			)
