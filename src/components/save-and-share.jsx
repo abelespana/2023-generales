@@ -7,7 +7,7 @@ import { WhatsappShareButton } from 'react-share';
 
 const SHARING_URL = 'https://generales23j.netlify.app';
 
-const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties }) => {
+const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties, isSaved }) => {
 	const getSharingResults = () => {
 		const results = [];
 		const sortedParties = parties.sort((a, b) => b.projectedSeats - a.projectedSeats);
@@ -56,7 +56,7 @@ const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties
 	}
 
 	return (
-		<Paper sx={{p: 1, position: 'fixed', left: 0, width: '100%', zIndex: 1}} elevation={3}>
+		<Paper sx={{p: 1, position: 'fixed', left: 0, top: 32, width: '100%', zIndex: 1}} elevation={3}>
 			<Box display='flex' flexDirection='column' alignItems='center'>
 				<Button 
 					sx={{width: '200px', marginBottom: '12px'}}
@@ -74,7 +74,7 @@ const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties
 					<Button
 						sx={{width: '200px'}}
 						variant="contained"
-						disabled={!navigator.share}
+						disabled={!isSaved}
 						startIcon={<WhatsAppIcon />}
 						size='medium'
 					>
