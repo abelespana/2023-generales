@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
-
 const Party = ({ party, availableSeats, updateTotalSeats, updatePartySeats }) => {
 	const [partySeats, setPartySeats] = useState(party.projectedSeats);
 
