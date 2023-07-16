@@ -9,7 +9,7 @@ const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisable
 		<Paper sx={{p: 1, position: 'fixed', left: 0, width: '100%', zIndex: 1}} elevation={3}>
 			<Box display='flex' flexDirection='column' alignItems='center'>
 				<Button 
-					sx={{width: '200px', marginBottom: '16px'}}
+					sx={{width: '200px', marginBottom: '12px'}}
 					variant="contained"
 					disabled={saveButtonDisabled}
 					onClick={saveButtonClicked} 
