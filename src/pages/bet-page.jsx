@@ -7,7 +7,7 @@ import SeatsCounter from '../components/seats-counter';
 import Box from '@mui/material/Box';
 import SaveAndShare from '../components/save-and-share';
 
-const TOTAL_SEATS = 10;
+const TOTAL_SEATS = 350;
 const LOCAL_STORAGE_KEY = 'generales_unique_id';
 
 const BetPage = () => {

@@ -5,7 +5,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import { WhatsappShareButton } from 'react-share';
 
-const SHARING_URL = 'www.marca.com';
+const SHARING_URL = 'https://generales23j.netlify.app';
 
 const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties }) => {
 	const getSharingResults = () => {
