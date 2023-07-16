@@ -4,7 +4,20 @@ import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 import IosShareIcon from '@mui/icons-material/IosShare';
 
-const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisabled}) => {
+const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisabled, isSaving}) => {
+
+	const getSavingText = () => {
+		if (isSaving) {
+			return 'Guardando...';
+		}
+
+		if (saveButtonDisabled) {
+			return 'Guardado';
+		}
+
+		return 'Guardar'
+	}
+
 	return (
 		<Paper sx={{p: 1, position: 'fixed', left: 0, width: '100%', zIndex: 1}} elevation={3}>
 			<Box display='flex' flexDirection='column' alignItems='center'>
@@ -17,7 +30,7 @@ const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisable
 					color='success' 
 					size='medium'
 				>
-					{saveButtonDisabled ? 'Guardado' : 'Guardar'}
+					{getSavingText()}
 				</Button>
 				<Button
 					sx={{width: '200px'}}

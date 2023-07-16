@@ -13,6 +13,7 @@ const LOCAL_STORAGE_KEY = 'generales_unique_id';
 const BetPage = () => {
 	const [availableSeats, setAvailableSeats] = useState(TOTAL_SEATS);
 	const [savingButtonDisabled, setSavingButtonDisabled] = useState(false);
+	const [isSaving, setIsSaving] = useState(false);
 
 	const updateAvailableSeats = (number) => {
 		const remainingSeats = availableSeats - number;
@@ -51,13 +52,24 @@ const BetPage = () => {
 	}
 
 	const saveBet = () => {
+		if (isSaving) {
+			debugger;
+			return;
+		}
+
 		const collectionId = 'generales';
 		const documentId = getDocumentId();
 		const results = getTotalResults();
 
+		setIsSaving(true);
+
 		setDoc(doc(db, collectionId, documentId), {
 			results,
-		}).then(() => setSavingButtonDisabled(true));
+		}).then(() => {
+			setSavingButtonDisabled(true);	
+		}).finally(() => {
+			setIsSaving(false);
+		});
 	}
 
 	const shareBet = () => {
@@ -66,7 +78,14 @@ const BetPage = () => {
 
 	const ResultsFrame = () => {
 		if (availableSeats === 0) {
-			return (<SaveAndShare saveButtonClicked={saveBet} shareButtonClicked={shareBet} saveButtonDisabled={savingButtonDisabled}/>)
+			return (
+				<SaveAndShare 
+					saveButtonClicked={saveBet} 
+					shareButtonClicked={shareBet} 
+					saveButtonDisabled={savingButtonDisabled}
+					isSaving={isSaving}
+				/>
+			)
 		}
 
 		return (<SeatsCounter availableSeats={availableSeats}/>)
