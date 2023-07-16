@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import SaveAndShare from '../components/save-and-share';
 
 const TOTAL_SEATS = 50;
+const LOCAL_STORAGE_KEY = 'generales_unique_id';
 
 const BetPage = () => {
 	const [availableSeats, setAvailableSeats] = useState(TOTAL_SEATS);
@@ -37,11 +38,11 @@ const BetPage = () => {
 	}
 
 	const getDocumentId = () => {
-		const existingId = localStorage.getItem('generales_unique_id');
+		const existingId = localStorage.getItem(LOCAL_STORAGE_KEY);
 
 		if (!existingId) {
 			const id = `${new Date().valueOf()}`;
-			localStorage.setItem('generales_unique_id', id)
+			localStorage.setItem(LOCAL_STORAGE_KEY, id)
 
 			return id;
 		}
@@ -51,10 +52,10 @@ const BetPage = () => {
 
 	const saveBet = () => {
 		const collectionId = 'generales';
-
+		const documentId = getDocumentId();
 		const results = getTotalResults();
 
-		setDoc(doc(db, collectionId, getDocumentId()), {
+		setDoc(doc(db, collectionId, documentId), {
 			results,
 		}).then(() => setSavingButtonDisabled(true));
 	}

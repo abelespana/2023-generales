@@ -92,4 +92,12 @@ export const parties = [
 		projectedSeats: 0,
 		prevResults: "1 dip. (Teruel Existe)"
 	},
+	{
+		name: 'Otros',
+		short: '-',
+		leader: '-',
+		currentSeats: 0,
+		projectedSeats: 0,
+		prevResults: "-"
+	},
 ];
