@@ -53,7 +53,6 @@ const BetPage = () => {
 
 	const saveBet = () => {
 		if (isSaving) {
-			debugger;
 			return;
 		}
 
@@ -72,35 +71,14 @@ const BetPage = () => {
 		});
 	}
 
-	const shareBet = () => {
-		const results = [];
-
-		parties.forEach((party) => {
-			let str = null;
-
-			if (party.projectedSeats > 0) {
-				const seatsStr = party.projectedSeats > 1 ? 'diputados/as' : 'diputado/a'
-				if (party.short) {
-					str = `${party.short}: ${party.projectedSeats} ${seatsStr}`
-				} else {
-					str = `${party.name}: ${party.projectedSeats} ${seatsStr}`
-				}
-
-				results.push(str);
-			}
-		});
-
-		console.log(results);
-	}
-
 	const ResultsFrame = () => {
 		if (availableSeats === 0) {
 			return (
 				<SaveAndShare 
 					saveButtonClicked={saveBet} 
-					shareButtonClicked={shareBet} 
 					saveButtonDisabled={savingButtonDisabled}
 					isSaving={isSaving}
+					parties={parties}
 				/>
 			)
 		}

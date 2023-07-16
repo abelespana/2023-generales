@@ -2,9 +2,46 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
-import IosShareIcon from '@mui/icons-material/IosShare';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
+import { WhatsappShareButton } from 'react-share';
 
-const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisabled, isSaving}) => {
+const SHARING_URL = 'www.marca.com';
+
+const SaveAndShare = ({ saveButtonClicked, saveButtonDisabled, isSaving, parties }) => {
+	const getSharingResults = () => {
+		const results = [];
+		const sortedParties = parties.sort((a, b) => b.projectedSeats - a.projectedSeats);
+
+		sortedParties.forEach((party) => {
+			let str = null;
+
+			if (party.projectedSeats > 0) {
+				const seatsStr = party.projectedSeats > 1 ? 'diputados/as' : 'diputado/a'
+				if (party.short) {
+					str = `${party.short}: ${party.projectedSeats} ${seatsStr}`
+				} else {
+					str = `${party.name}: ${party.projectedSeats} ${seatsStr}`
+				}
+
+				results.push(str);
+			}
+		});
+
+		return results;
+	}
+
+	const getSharingMessage = () => {
+		let str = `Esta es mi predicción para las elecciones generales del 23-J\n`;
+		const sharingResults = getSharingResults();
+
+		sharingResults.forEach((item) => {
+			str += `${item}\n`
+		});
+
+		str += `\nHaz la tuya en ${SHARING_URL}`
+
+		return str;
+	}
 
 	const getSavingText = () => {
 		if (isSaving) {
@@ -32,15 +69,18 @@ const SaveAndShare = ({ saveButtonClicked, shareButtonClicked, saveButtonDisable
 				>
 					{getSavingText()}
 				</Button>
-				<Button
-					sx={{width: '200px'}}
-					variant="contained" 
-					onClick={shareButtonClicked} 
-					startIcon={<IosShareIcon />} 
-					size='medium'
-				>
-					Compartir
-				</Button>
+
+				<WhatsappShareButton url={getSharingMessage()}>
+					<Button
+						sx={{width: '200px'}}
+						variant="contained"
+						disabled={!navigator.share}
+						startIcon={<WhatsAppIcon />}
+						size='medium'
+					>
+						Compartir
+					</Button>
+				</WhatsappShareButton>
 			</Box>
 		</Paper>
 	)
