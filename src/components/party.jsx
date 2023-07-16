@@ -13,7 +13,7 @@ const Party = ({ party, availableSeats, updateTotalSeats, updatePartySeats }) =>
 	const updateSeats = (number) => {
 		const updatedSeats = partySeats + number;
 
-		updateTotalSeats(availableSeats - number);
+		updateTotalSeats(number);
 		updatePartySeats(party.name, updatedSeats);
 		setPartySeats(updatedSeats);
 	}

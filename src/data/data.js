@@ -31,7 +31,7 @@ export const parties = [
 	},
 	{
 		name: 'Esquerra Republicana de Catalunya',
-		short: 'ERC-Sobiranistes',
+		short: 'ERC',
 		leader: 'Gabriel Rufián',
 		currentSeats: 13,
 		projectedSeats: 0,

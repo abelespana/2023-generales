@@ -13,7 +13,9 @@ const BetPage = () => {
 	const [availableSeats, setAvailableSeats] = useState(TOTAL_SEATS);
 	const [savingButtonDisabled, setSavingButtonDisabled] = useState(false);
 
-	const updateAvailableSeats = (remainingSeats) => {
+	const updateAvailableSeats = (number) => {
+		const remainingSeats = availableSeats - number;
+		
 		if (remainingSeats === 0) {
 			setSavingButtonDisabled(false);
 		}
