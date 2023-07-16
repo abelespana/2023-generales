@@ -9,7 +9,7 @@ import Menu from '../components/menu';
 const ResultsPage = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
-	const [parties, setParties] = useState(null);
+	const [results, setResults] = useState(null);
 
 	const fetchResults = async () => {
 		const results = [];
@@ -48,21 +48,21 @@ const ResultsPage = () => {
 		});
 
 		return parties.map((x) => {
+			const averageSeats = x.seats / predictions.length;
+
 			return {
 				name: x.name, 
-				seats: Math.round(x.seats / predictions.length),
-				// TODO: ver si lo uso al final
-				// legend: !Number.isInteger(x.seats) ? `${x.seats / predictions.length} escaños` : `${Math.round(x.seats / predictions.length)}-${Math.floor(x.seats / predictions.length)} escaños`
+				seats: Math.round(averageSeats),
+				legend: Number.isInteger(averageSeats) ? `${averageSeats} escaños` : `${Math.floor(averageSeats)}-${Math.round(averageSeats)} escaños`
 			};
-		});
+		}).filter((x) => x.seats > 0);
 	}
 
 	useEffect(() => {
 		async function fetchAndFormatData() {
 			const results = await fetchResults();
 			const formattedData = formatData(results);
-			console.log(formattedData);
-			// setParties(formatResults(results));
+			setResults(formattedData);
 		}
 
 		fetchAndFormatData();
