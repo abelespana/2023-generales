@@ -36,16 +36,27 @@ const BetPage = () => {
 		});
 	}
 
+	const getDocumentId = () => {
+		const existingId = localStorage.getItem('generales_unique_id');
+
+		if (!existingId) {
+			const id = `${new Date().valueOf()}`;
+			localStorage.setItem('generales_unique_id', id)
+
+			return id;
+		}
+		
+		return existingId;
+	}
+
 	const saveBet = () => {
 		const collectionId = 'generales';
-		const documentId = `${new Date().valueOf()}`;
+
 		const results = getTotalResults();
 
-		console.log(results);
-	
-		setDoc(doc(db, collectionId, documentId), {
+		setDoc(doc(db, collectionId, getDocumentId()), {
 			results,
-		});
+		}).then(() => setSavingButtonDisabled(true));
 	}
 
 	const shareBet = () => {
