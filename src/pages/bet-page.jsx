@@ -7,7 +7,7 @@ import SeatsCounter from '../components/seats-counter';
 import Box from '@mui/material/Box';
 import SaveAndShare from '../components/save-and-share';
 
-const TOTAL_SEATS = 50;
+const TOTAL_SEATS = 10;
 const LOCAL_STORAGE_KEY = 'generales_unique_id';
 
 const BetPage = () => {
@@ -73,7 +73,24 @@ const BetPage = () => {
 	}
 
 	const shareBet = () => {
-		console.log('share button clicked');
+		const results = [];
+
+		parties.forEach((party) => {
+			let str = null;
+
+			if (party.projectedSeats > 0) {
+				const seatsStr = party.projectedSeats > 1 ? 'diputados/as' : 'diputado/a'
+				if (party.short) {
+					str = `${party.short}: ${party.projectedSeats} ${seatsStr}`
+				} else {
+					str = `${party.name}: ${party.projectedSeats} ${seatsStr}`
+				}
+
+				results.push(str);
+			}
+		});
+
+		console.log(results);
 	}
 
 	const ResultsFrame = () => {
