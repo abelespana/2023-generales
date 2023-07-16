@@ -94,7 +94,6 @@ export const parties = [
 	},
 	{
 		name: 'Otros',
-		short: '-',
 		leader: '-',
 		currentSeats: 0,
 		projectedSeats: 0,

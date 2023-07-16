@@ -6,6 +6,7 @@ import Party from '../components/party';
 import SeatsCounter from '../components/seats-counter';
 import Box from '@mui/material/Box';
 import SaveAndShare from '../components/save-and-share';
+import Menu from '../components/menu';
 
 const TOTAL_SEATS = 350;
 const LOCAL_STORAGE_KEY = 'generales_unique_id';
@@ -88,8 +89,9 @@ const BetPage = () => {
 
 	return (
 		<>
+		<Menu/>
 		<ResultsFrame />
-		<Box sx={{pb: 7, pt: 12}}>
+		<Box sx={{pb: 7, pt: 16}}>
 			{parties.map(party => {
 				return <Party key={party.name} party={party} availableSeats={availableSeats} updateTotalSeats={updateAvailableSeats} updatePartySeats={updatePartySeats}/>;
 			})}

@@ -14,7 +14,7 @@ const SeatsCounter = ({availableSeats}) => {
 
 	return (
 		
-		<Paper sx={{p: 1, position: 'fixed', left: 0, width: '100%', zIndex: 1}} elevation={3}>
+		<Paper sx={{p: 1, position: 'fixed', left: 0, top: 32, width: '100%', zIndex: 1}} elevation={3}>
 			<Typography 
 				align="center"
 				variant='subtitle2'
