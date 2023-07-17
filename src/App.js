@@ -7,6 +7,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import PollIcon from '@mui/icons-material/Poll';
+import Container from '@mui/material/Container';
 
 import BetPage from './pages/bet-page';
 import ResultsPage from './pages/results-page';
@@ -42,14 +43,16 @@ const Navigation = () => {
 
 function App() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path='/' element={<BetPage />}></Route>
-				<Route path='/polls' element={<BetPage />}></Route>
-				<Route path='/results' element={<ResultsPage />}></Route>
-			</Routes>
-			<Navigation />
-		</BrowserRouter>
+		<Container maxWidth="xs" sx={{ px: 0 }}>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<BetPage />}></Route>
+					<Route path='/polls' element={<BetPage />}></Route>
+					<Route path='/results' element={<ResultsPage />}></Route>
+				</Routes>
+				<Navigation />
+			</BrowserRouter>
+		</Container>
 
 	);
 }
