@@ -43,7 +43,7 @@ const Navigation = () => {
 
 function App() {
 	return (
-		<Container maxWidth="xs">
+		<Container maxWidth="xs" sx={{ px: 0 }}>
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<BetPage />}></Route>
